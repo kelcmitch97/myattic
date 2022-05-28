@@ -12,7 +12,8 @@ const productSchema = new Schema({
     type: String
   },
   image: {
-    type: String
+    type: String,
+    test: /\.(png|jpe?g|gif)$/i
   },
   price: {
     type: Number,
@@ -28,7 +29,13 @@ const productSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Category',
     required: true
-  }
+  },
+  user: [
+    {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
+]
 });
 
 const Product = mongoose.model('Product', productSchema);

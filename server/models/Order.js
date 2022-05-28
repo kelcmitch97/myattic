@@ -12,8 +12,7 @@ const orderSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: 'Product'
     }
-  ]total price
-  total amount 
+  ]
 });
 
 const Order = mongoose.model('Order', orderSchema);
