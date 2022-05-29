@@ -68,3 +68,5 @@ export const QUERY_USER = gql`
     }
   }
 `;
+
+// export const USER_PRODUCTS = gql``;
