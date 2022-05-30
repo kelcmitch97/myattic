@@ -50,7 +50,7 @@ function Nav() {
         <ul className="flex-row">
           <li className="mx-1">
             <Link to="/orderHistory">
-              Order History
+              Orders
             </Link>
           </li>
           <li className="mx-1">
@@ -83,15 +83,14 @@ function Nav() {
     <header className="flex-row px-1 header">
       <h1 className="title">
         <Link to="/">
-          <img alt="logo" src={logo}/>
-         My Attic
+          <img alt="logo" src={logo} />
         </Link>
       </h1>
 
       <nav>
         {showNavigation()}
 
-            <li className="mx-1 menu">
+            {/* <li className="mx-1 menu">
                 <Link to="/">
                 Categories
                 </Link>
@@ -107,7 +106,7 @@ function Nav() {
                         </li>
                     ))}
                 </ul>
-            </li>
+            </li> */}
 
       </nav>
     </header>

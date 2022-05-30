@@ -49,14 +49,24 @@ body {
     text-decoration: none;
 }
 
+.header {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
 .header a:hover{
-    text-decoration: underline;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .header nav{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    position: relative;
+    top: -10px;
 }
 
 .header nav ul{
