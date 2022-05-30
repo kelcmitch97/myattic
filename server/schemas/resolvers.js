@@ -161,30 +161,31 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     },
-    editProduct: async (parent, { _id, productData }) => {
+    editProduct: async (parent, { _id, productData }, context) => {
 
-      // if (context.user) {
+      if (context.user) {
 
         return await Product.findByIdAndUpdate(
           { _id },
           { $set: productData },
           { new: true}
         )
-      // };
+      };
     
       throw new AuthenticationError('You need to be logged in!');
     },
 
-    removeProduct: async (parent, { productId}, context) => {
+    removeProduct: async (parent, args, context) => {
+
       if (context.user) {
 
-        return Product.findOneAndDelete({ _id: productId });
+        return Product.findByIdAndDelete(
+          { _id: args._id }
+          );
       }
 
       throw new AuthenticationError('You need to be logged in!');
-    },
-
-
+    }
   }
 };
 
