@@ -39,6 +39,11 @@ const resolvers = {
     product: async (parent, { _id }) => {
       return await Product.findById(_id).populate('category');
     },
+
+    users: async () => {
+      return await User.find();
+    },
+
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
@@ -165,11 +170,18 @@ const resolvers = {
 
       if (context.user) {
 
-        return await Product.findByIdAndUpdate(
+        const product = await Product.findByIdAndUpdate(
           { _id },
           { $set: productData },
           { new: true}
         )
+
+        return User.findByIdAndUpdate(
+          { _id },
+          { $pull: {products: product} },
+          { new: true}
+        )
+
       };
     
       throw new AuthenticationError('You need to be logged in!');
@@ -179,15 +191,15 @@ const resolvers = {
 
       if (context.user) {
 
-        const updatedUser = await User.findOneAndUpdate(
-          { _id: context.user.id},
-          {$pull: {product: args._id}},
-          {new: true}
-        );
-
         return Product.findByIdAndDelete(
           { _id: args._id }
           );
+
+        // return User.findOneAndUpdate(
+        //     { _id: context.user.id},
+        //     {$pull: args},
+        //     {new: true}
+        //   );
       }
 
       throw new AuthenticationError('You need to be logged in!');
