@@ -179,6 +179,12 @@ const resolvers = {
 
       if (context.user) {
 
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user.id},
+          {$pull: {product: args._id}},
+          {new: true}
+        );
+
         return Product.findByIdAndDelete(
           { _id: args._id }
           );
