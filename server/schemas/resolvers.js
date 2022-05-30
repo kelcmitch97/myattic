@@ -157,7 +157,7 @@ const resolvers = {
 
         await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { products: args.productData } },
+          { $push: { products: product } },
           { new: true }
         );
 
@@ -166,21 +166,37 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     },
-    editProduct: async (parent, { _id, productData }, context) => {
+    editProduct: async (parent, args, context) => {
 
       if (context.user) {
 
         const product = await Product.findByIdAndUpdate(
-          { _id },
-          { $set: productData },
+          { _id: args.productId },
+          { $set: args.productData},
           { new: true}
-        )
+        );
 
-        return User.findByIdAndUpdate(
-          { _id },
-          { $pull: {products: product} },
-          { new: true}
-        )
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id},
+          { $set: { products: product } },
+          { new: true }
+        );
+
+        await updatedUser.save();
+
+      return product;
+
+        // const product = await Product.findByIdAndUpdate(
+        //   { _id },
+        //   { $set: productData },
+        //   { new: true}
+        // )
+
+        // return User.findByIdAndUpdate(
+        //   { _id },
+        //   { $pull: {products: product} },
+        //   { new: true}
+        // )
 
       };
     
@@ -188,22 +204,21 @@ const resolvers = {
     },
 
     removeProduct: async (parent, args, context) => {
-
       if (context.user) {
 
-        return Product.findByIdAndDelete(
-          { _id: args._id }
+        const product = await Product.findByIdAndDelete(args.productId);
+
+          const updatedUser = await User.findOneAndUpdate(
+            { _id: context.user._id},
+            { $pull: { products: { _id: args.productId } } },
+            { new: true }
           );
 
-        // return User.findOneAndUpdate(
-        //     { _id: context.user.id},
-        //     {$pull: args},
-        //     {new: true}
-        //   );
-      }
+          await updatedUser.save();
 
-      throw new AuthenticationError('You need to be logged in!');
-    }
+        return product
+      }
+    }  
   }
 };
 
