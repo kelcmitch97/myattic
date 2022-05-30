@@ -67,6 +67,16 @@ body {
     list-style: none;
 }
 
+.header nav .menu li{
+    color: var(--primary-background-colour);
+    font-size: 1.5rem;
+}
+
+.header nav .menu li:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 .header nav a{
     text-decoration: none;
     font-size: 2rem;
