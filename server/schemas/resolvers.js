@@ -121,13 +121,7 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
-    updateUser: async (parent, args, context) => {
-      if (context.user) {
-        return await User.findByIdAndUpdate(context.user._id, args, { new: true });
-      }
 
-      throw new AuthenticationError('Not logged in');
-    },
     updateProduct: async (parent, { _id, quantity }) => {
       const decrement = Math.abs(quantity) * -1;
 
@@ -167,7 +161,30 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     },
+    editProduct: async (parent, { _id, productData }) => {
+
+      // if (context.user) {
+
+        return await Product.findByIdAndUpdate(
+          { _id },
+          { $set: productData },
+          { new: true}
+        )
+      // };
     
+      throw new AuthenticationError('You need to be logged in!');
+    },
+
+    removeProduct: async (parent, { productId}, context) => {
+      if (context.user) {
+
+        return Product.findOneAndDelete({ _id: productId });
+      }
+
+      throw new AuthenticationError('You need to be logged in!');
+    },
+
+
   }
 };
 
