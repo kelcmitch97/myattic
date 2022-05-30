@@ -156,9 +156,12 @@ const resolvers = {
 
         const product = await Product.create(args.productData);
 
+        product.user.push(context.user._id)
+        console.log(product)
+
         await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { products: args.productData } },
+          { $push: { products: product } },
           { new: true }
         );
 
@@ -167,6 +170,23 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     },
+
+    removeProduct: async (parent, args, context) => {
+      if (context.user) {
+
+        const product = await Product.findByIdAndDelete(args.productId);
+
+          const updatedUser = await User.findOneAndUpdate(
+            { _id: context.user._id},
+            { $pull: { products: { _id: args.productId } } },
+            { new: true }
+          );
+
+          await updatedUser.save(); 
+
+        return product
+      }
+    }
     
   }
 };
