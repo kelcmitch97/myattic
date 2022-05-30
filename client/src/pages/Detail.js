@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-
+import "./style.css";
 import Cart from '../components/Cart';
 import { useStoreContext } from '../utils/GlobalState';
 import {
-  REMOVE_FROM_CART,
-  UPDATE_CART_QUANTITY,
-  ADD_TO_CART,
   UPDATE_PRODUCTS,
 } from '../utils/actions';
 import { QUERY_PRODUCTS } from '../utils/queries';
@@ -51,65 +48,37 @@ function Detail() {
     }
   }, [products, data, loading, dispatch, id]);
 
-  const addToCart = () => {
-    const itemInCart = cart.find((cartItem) => cartItem._id === id);
-    if (itemInCart) {
-      dispatch({
-        type: UPDATE_CART_QUANTITY,
-        _id: id,
-        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
-      });
-      idbPromise('cart', 'put', {
-        ...itemInCart,
-        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
-      });
-    } else {
-      dispatch({
-        type: ADD_TO_CART,
-        product: { ...currentProduct, purchaseQuantity: 1 },
-      });
-      idbPromise('cart', 'put', { ...currentProduct, purchaseQuantity: 1 });
-    }
-  };
-
-  const removeFromCart = () => {
-    dispatch({
-      type: REMOVE_FROM_CART,
-      _id: currentProduct._id,
-    });
-
-    idbPromise('cart', 'delete', { ...currentProduct });
-  };
-
   return (
     <>
       {currentProduct && cart ? (
-        <div className="container my-1">
-          <Link to="/">← Back to Products</Link>
-
-          <h2>{currentProduct.name}</h2>
-
-          <p>{currentProduct.description}</p>
-
-          <p>
-            <strong>Price:</strong>${currentProduct.price}{' '}
-            <button onClick={addToCart}>Add to Cart</button>
-            <button
-              disabled={!cart.find((p) => p._id === currentProduct._id)}
-              onClick={removeFromCart}
-            >
-              Remove from Cart
-            </button>
-          </p>
-
-          <img
-            src={`/images/${currentProduct.image}`}
-            alt={currentProduct.name}
-          />
+        <section className='product'>
+        <div class="product__photo">
+            <div class="photo-container">
+                <div class="photo-main">
+                    <img src={`/images/${currentProduct.image}`} alt={currentProduct.name}/>
+                </div>
+            </div>
         </div>
+        <div class="product__info">
+            <div class="title">
+                <h1>{currentProduct.name}</h1>
+            </div>
+            <div class="price">$ <span>${currentProduct.price}</span></div>
+            <div class="description">
+                <h3>Description</h3>
+                <span>{currentProduct.description}</span>
+            </div>
+            <div>
+                <h3>Stock</h3>
+                <span>#</span>
+                <button class="buy--btn">ADD TO CART</button>
+            </div>
+        </div>
+      </section>
       ) : null}
       {loading ? <img src={spinner} alt="loading" /> : null}
       <Cart />
+
     </>
   );
 }
