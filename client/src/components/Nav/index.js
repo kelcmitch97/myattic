@@ -10,7 +10,7 @@ import {
 } from '../../utils/actions';
 import { QUERY_CATEGORIES } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
-import {FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 
 function Nav() {
@@ -95,6 +95,12 @@ function Nav() {
       </h1>
 
       <nav>
+
+        {/* Hamburger */}
+        <div onClick={handleClick} className='hidden'>
+          <FaBars />
+          {/* <FaTimes /> */}
+        </div>
         {showNavigation()}
 
         {/* <li className="mx-1 menu">
@@ -117,11 +123,7 @@ function Nav() {
 
       </nav>
 
-      {/* Hamburger */}
-      <div onClick={handleClick} className='hidden'>
-         <FaBars /> 
-         {/* <FaTimes /> */}
-      </div>
+
     </header>
   );
 }
