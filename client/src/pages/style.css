@@ -48,6 +48,10 @@ img {
 	filter: drop-shadow(1px 1px 3px var(--color-secondary));
 }
 
+.logo{
+	width: 100px;
+}
+
 /* ----- Product Section ----- */
 .product {
 	display: grid;
