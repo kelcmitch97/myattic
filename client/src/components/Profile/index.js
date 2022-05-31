@@ -30,36 +30,6 @@ function Profile() {
 
   }
 
-  var productData = useQuery(QUERY_USER)
-
-  if (productData) {
-    let proData = productData.data
-    
-    if (proData) {
-      let productsData = proData.user
-      console.log(productsData)
-
-      if (productsData) {
-        productData = productsData.products
-      }
-
-    }
-
-  }
-
-
-
-  // const { loading, data } = useQuery(QUERY_USER);
-  // let user;
-
-  // if (data) {
-  //   user = data.user;
-  // }
-
-  // console.log(user)
-
-    // console.log(user)
-
     const [state, dispatch] = useStoreContext();
   
     const { currentCategory } = state;
@@ -74,6 +44,7 @@ function Profile() {
         });
         data.products.forEach((product) => {
           idbPromise('products', 'put', product);
+          console.log(product)
         });
       } else if (!loading) {
         idbPromise('products', 'get').then((products) => {
@@ -87,16 +58,10 @@ function Profile() {
   
     function filterProducts() {
       if (!currentCategory) {
-        return productData.filter(
+        return state.products.filter(
           (product) => product.user === productUserData
         );
       }
-
-    // function filterUser() {
-    //   if(user.products) {
-    //     return user.products
-    //   }
-    // }
   
       return state.products.filter(
         (product) => product.category._id === currentCategory
@@ -106,9 +71,9 @@ function Profile() {
     return (
       <div className="my-2">
         <h2>User's Products:</h2>
-        {productData.length ? (
+        {state.products.length ? (
           <div className="flex-row">
-            {productData.map((product) => (
+            {filterProducts().map((product) => (
               <ProductItem
                 key={product._id}
                 _id={product._id}
