@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo2.PNG'
 import { useQuery } from '@apollo/client';
 import { useStoreContext } from '../../utils/GlobalState';
 import {
@@ -10,9 +10,11 @@ import {
 } from '../../utils/actions';
 import { QUERY_CATEGORIES } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
+import {FaBars, FaTimes } from 'react-icons/fa';
+
 
 function Nav() {
-    const [state, dispatch] = useStoreContext();
+  const [state, dispatch] = useStoreContext();
 
   const { categories } = state;
 
@@ -74,6 +76,11 @@ function Nav() {
               Login
             </Link>
           </li>
+          <li className="mx-1">
+            <Link to="/contact">
+              Contact
+            </Link>
+          </li>
         </ul>
       );
     }
@@ -83,14 +90,14 @@ function Nav() {
     <header className="flex-row px-1 header">
       <h1 className="title">
         <Link to="/">
-          <img alt="logo" src={logo} />
+          <img alt="logo" src={logo} className='logo' />
         </Link>
       </h1>
 
       <nav>
         {showNavigation()}
 
-            {/* <li className="mx-1 menu">
+        {/* <li className="mx-1 menu">
                 <Link to="/">
                 Categories
                 </Link>
@@ -109,6 +116,12 @@ function Nav() {
             </li> */}
 
       </nav>
+
+      {/* Hamburger */}
+      <div onClick={handleClick} className='hidden'>
+         <FaBars /> 
+         {/* <FaTimes /> */}
+      </div>
     </header>
   );
 }
