@@ -52,26 +52,26 @@ function Detail() {
     <>
       {currentProduct && cart ? (
         <section className='product'>
-        <div class="product__photo">
-            <div class="photo-container">
-                <div class="photo-main">
+        <div className="product__photo">
+            <div className="photo-container">
+                <div className="photo-main">
                     <img src={`/images/${currentProduct.image}`} alt={currentProduct.name}/>
                 </div>
             </div>
         </div>
-        <div class="product__info">
-            <div class="title">
+        <div className="product__info">
+            <div className="title">
                 <h1>{currentProduct.name}</h1>
             </div>
-            <div class="price">$ <span>${currentProduct.price}</span></div>
-            <div class="description">
+            <div className="price"><span>${currentProduct.price}</span></div>
+            <div className="description">
                 <h3>Description</h3>
                 <span>{currentProduct.description}</span>
             </div>
             <div>
                 <h3>Stock</h3>
                 <span>#</span>
-                <button class="buy--btn">ADD TO CART</button>
+                <button className="buy--btn">ADD TO CART</button>
             </div>
         </div>
       </section>
