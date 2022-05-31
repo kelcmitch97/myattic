@@ -13,8 +13,6 @@ function Profile() {
 
   var productUserData = useQuery(QUERY_ME);
 
-  var productUser;
-
   if (productUserData) {
     let pUser = productUserData.data
     
@@ -31,6 +29,24 @@ function Profile() {
     }
 
   }
+
+  var productData = useQuery(QUERY_USER)
+
+  if (productData) {
+    let proData = productData.data
+    
+    if (proData) {
+      let productsData = proData.user
+      console.log(productsData)
+
+      if (productsData) {
+        productData = productsData.products
+      }
+
+    }
+
+  }
+
 
 
   // const { loading, data } = useQuery(QUERY_USER);
@@ -71,7 +87,7 @@ function Profile() {
   
     function filterProducts() {
       if (!currentCategory) {
-        return state.products.filter(
+        return productData.filter(
           (product) => product.user === productUserData
         );
       }
@@ -90,9 +106,9 @@ function Profile() {
     return (
       <div className="my-2">
         <h2>User's Products:</h2>
-        {state.products.length ? (
+        {productData.length ? (
           <div className="flex-row">
-            {filterProducts().map((product) => (
+            {productData.map((product) => (
               <ProductItem
                 key={product._id}
                 _id={product._id}

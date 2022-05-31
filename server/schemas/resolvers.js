@@ -156,10 +156,9 @@ const resolvers = {
 
         const product = await Product.create(args.productData);
 
-        product.user.push(context.user._id)
         console.log(product)
 
-        await User.findByIdAndUpdate(
+        await User.findByIdAndUpdate( 
           { _id: context.user._id },
           { $push: { products: product } },
           { new: true }
