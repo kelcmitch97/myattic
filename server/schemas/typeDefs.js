@@ -42,12 +42,17 @@ const typeDefs = gql`
   }
 
   input productData {
+    _id: ID
     name: String
     description: String
     image: String
     quantity: Int
     price: Float
     user: String
+  }
+
+  input categoryData {
+    name: String
   }
 
   input categoryData {
@@ -69,6 +74,7 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     addOrder(products: [ID]!): Order
     updateProduct(_id: ID!, quantity: Int!): Product
+    editProduct(productId: ID!, productData: productData): Product
     login(email: String!, password: String!): Auth
     addProduct(userId: ID!, productData: productData): Product
     removeProduct(productId: ID!): Product

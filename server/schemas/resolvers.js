@@ -39,6 +39,11 @@ const resolvers = {
     product: async (parent, { _id }) => {
       return await Product.findById(_id).populate('category');
     },
+
+    users: async () => {
+      return await User.find();
+    },
+
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
@@ -121,13 +126,6 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
-    // updateUser: async (parent, args, context) => {
-    //   if (context.user) {
-    //     return await User.findByIdAndUpdate(context.user._id, args, { new: true });
-    //   }
-
-    //   throw new AuthenticationError('Not logged in');
-    // },
     updateProduct: async (parent, { _id, quantity }) => {
       const decrement = Math.abs(quantity) * -1;
 
@@ -169,6 +167,42 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     },
+    editProduct: async (parent, args, context) => {
+
+      if (context.user) {
+
+        const product = await Product.findByIdAndUpdate(
+          { _id: args.productId },
+          { $set: args.productData},
+          { new: true}
+        );
+
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id},
+          { $set: { products: product } },
+          { new: true }
+        );
+
+        await updatedUser.save();
+
+      return product;
+
+        // const product = await Product.findByIdAndUpdate(
+        //   { _id },
+        //   { $set: productData },
+        //   { new: true}
+        // )
+
+        // return User.findByIdAndUpdate(
+        //   { _id },
+        //   { $pull: {products: product} },
+        //   { new: true}
+        // )
+
+      };
+    
+      throw new AuthenticationError('You need to be logged in!');
+    },
 
     removeProduct: async (parent, args, context) => {
       if (context.user) {
@@ -181,12 +215,11 @@ const resolvers = {
             { new: true }
           );
 
-          await updatedUser.save(); 
+          await updatedUser.save();
 
         return product
       }
-    }
-    
+    }  
   }
 };
 
