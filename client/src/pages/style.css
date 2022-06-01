@@ -156,7 +156,7 @@ img {
 }
 
 /* ----- Contact Page ----- */
-.contact-page-container {
+.contact-page-container, .login-page-container{
 	width: 100vw;
 	height: 100vh;
 	display: flex;
@@ -209,7 +209,7 @@ img {
 }
 
 .contact-button {
-	width: 160px;
+	width: 100%;
 	height: 50px;
 	display: flex;
 	justify-content: center;
@@ -219,6 +219,32 @@ img {
 	color: var( --primary-colour-light);
 	font-weight: 600;
 }
+
+/* ----- Login Page ----- */
+
+.login-container {
+	background-color: var(--primary-background-colour);
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+	width: auto;
+	height: auto;
+	width: 100vmin;
+	min-width: 500px;
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	padding: 30px;
+}
+
+.login-title {
+	font-size: 36px; 
+	line-height: 40px; 
+	font-weight: bold;
+	border-bottom-width: 4px;
+	border-color: var(--tertiary-colour);
+	padding: 15px;
+}
+
+
 
 
 form {

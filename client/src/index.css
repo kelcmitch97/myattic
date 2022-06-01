@@ -158,6 +158,10 @@ input:focus {
   justify-content: flex-end;
 }
 
+.flex-center {
+  justify-content: center;
+}
+
 .mx-1 {
   margin-right: var(--spacing-one);
   margin-left: var(--spacing-one);
