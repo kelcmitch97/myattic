@@ -94,10 +94,6 @@ import spinner from '../assets/spinner.gif';
             <div>
                 <h3>Stock</h3>
                 <span>#</span>
-<<<<<<< HEAD
-                <button className="buy--btn">ADD TO CART</button>
-=======
->>>>>>> origin/css-modify
             </div>
             <section className='bottomSection'>
                 <button onClick={addToCart} className="buy--btn">ADD TO CART</button>
