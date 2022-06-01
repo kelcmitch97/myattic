@@ -2,27 +2,52 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import Auth from '../../utils/auth';
+import { useQuery } from '@apollo/client';
 import { ADD_PRODUCT } from '../../utils/mutations';
+import { QUERY_ME } from '../../utils/queries';
 
 function ProductForm(props) {
-    const [formState, setFormState] = useState({ name: '', description: '', image: '', quantity: 0,  price: 0.00});
+    const [formState, setFormState] = useState({ name: '', description: '', image: '', quantity: 1,  price: 0.00});
     const [addProduct, { error }] = useMutation(ADD_PRODUCT);
+
+    var productUserId = useQuery(QUERY_ME);
+
+  if (productUserId) {
+        let pUser = productUserId.data
+        
+        if (pUser) {
+
+        let me = pUser.me
+
+        if (me) {
+
+            productUserId = me._id
+
+            console.log(productUserId)
+
+        }
+
+        }
+
+    }
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
+        console.log(formState)
+
         try {
 
-      const { data } = await addProduct({
+        await addProduct({
           variables: {
-            userId: "6297ac07464edc29b66fa63c",
-            productData: {
+            userId: productUserId,
+            products: {
                 name: formState.name,
                 description: formState.description,
                 image: formState.image,
                 quantity: formState.quantity,
                 price: formState.price,
-                user: "6297ac07464edc29b66fa63c"
+                user: productUserId
             }
           },
         })

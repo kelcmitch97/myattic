@@ -14,7 +14,9 @@
 }
 
 .CartItem .ImageContainer {
-    width: 50%;
+    width: 160px;
+    height: 160px;
+    display: flex;
     text-align: center;
 }
 
