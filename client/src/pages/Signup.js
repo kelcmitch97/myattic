@@ -30,11 +30,10 @@ function Signup(props) {
   };
 
   return (
-    <div className="container my-1">
-      <Link to="/login">← Go to Login</Link>
-
-      <h2>Signup</h2>
+    <div className="signup-page-container my-1">
+    <div className='signup-container'>
       <form onSubmit={handleFormSubmit}>
+      <h2 className='signup-title'>Signup</h2>
         <div className="flex-row space-between my-2">
           <label htmlFor="username">Username:</label>
           <input
@@ -67,8 +66,10 @@ function Signup(props) {
         </div>
         <div className="flex-row flex-end">
           <button type="submit">Submit</button>
+          <Link to="/login"><button type="submit">Back To Login</button></Link>
         </div>
       </form>
+      </div>
     </div>
   );
 }

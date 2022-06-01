@@ -156,7 +156,7 @@ img {
 }
 
 /* ----- Contact Page ----- */
-.contact-page-container, .login-page-container{
+.contact-page-container, .login-page-container, .signup-page-container{
 	width: 100vw;
 	height: 100vh;
 	display: flex;
@@ -166,7 +166,7 @@ img {
 	overflow: hidden;
 }
 
-.contact-container {
+.contact-container, .signup-container {
 	background-color: var(--primary-background-colour);
 	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 	width: 900px;
@@ -235,7 +235,7 @@ img {
 	padding: 30px;
 }
 
-.login-title {
+.login-title, .signup-title {
 	font-size: 36px; 
 	line-height: 40px; 
 	font-weight: bold;
@@ -244,6 +244,20 @@ img {
 	padding: 15px;
 }
 
+/* ----- Signup Page ----- */
+
+.signup-container {
+	background-color: var(--primary-background-colour);
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+	width: 900px;
+	height: auto;
+	width: 100vmin;
+	min-width: 500px;
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	padding: 15px;
+}
 
 
 
