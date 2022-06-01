@@ -6,20 +6,32 @@ import { ADD_PRODUCT } from '../../utils/mutations';
 
 function ProductForm(props) {
     const [formState, setFormState] = useState({ name: '', description: '', image: '', quantity: 0,  price: 0});
-    const [addProduct] = useMutation(ADD_PRODUCT);
+    const [addProduct, { error }] = useMutation(ADD_PRODUCT);
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        const mutationResponse = await addProduct({
+
+        try {
+
+      const { data } = await addProduct({
           variables: {
-            name: formState.name,
-            description: formState.description,
-            image: formState.image,
-            quantity: formState.quantity,
-            price: formState.price
+            userId: "6296ab84c6478fa1ff5cb2f6",
+            // productData: {
+            //     name: formState.name,
+            //     description: formState.description,
+            //     image: formState.image,
+            //     quantity: formState.quantity,
+            //     price: formState.price,
+            //     user: "6296ab84c6478fa1ff5cb2f6"
+            // }
           },
-        });
-      };
+        })
+
+        } catch (e) {
+        console.log(e);
+      }
+
+    }
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -36,7 +48,7 @@ function ProductForm(props) {
       <h2>Add Product</h2>
       <form onSubmit={handleFormSubmit}>
         <div className="flex-row space-between my-2">
-          <label htmlFor="username">Product Name:</label>
+          <label htmlFor="name">Product Name:</label>
           <input
             placeholder="Product name"
             name="name"
@@ -46,41 +58,41 @@ function ProductForm(props) {
           />
         </div>
         <div className="flex-row space-between my-2">
-          <label htmlFor="email">Product Description:</label>
+          <label htmlFor="description">Product Description:</label>
           <input
             placeholder="Description..."
             name="description"
-            type="description"
+            type="text"
             id="description"
             onChange={handleChange}
           />
         </div>
         <div className="flex-row space-between my-2">
-          <label htmlFor="email">Product Description:</label>
+          <label htmlFor="image">Product Image:</label>
           <input
             placeholder="image"
             name="image"
-            type="name"
+            type="text"
             id="image"
             onChange={handleChange}
           />
         </div>
         <div className="flex-row space-between my-2">
-          <label htmlFor="email">Product Description:</label>
+          <label htmlFor="price">Product Price:</label>
           <input
             placeholder="Price"
             name="price"
-            type="price"
+            type="decimal"
             id="price"
             onChange={handleChange}
           />
         </div>
         <div className="flex-row space-between my-2">
-          <label htmlFor="email">Product Description:</label>
+          <label htmlFor="quantity">Product Quantity:</label>
           <input
             placeholder="Quantity"
             name="quantity"
-            type="quantity"
+            type="number"
             id="quantity"
             onChange={handleChange}
           />
