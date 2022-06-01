@@ -5,7 +5,7 @@ import Auth from '../../utils/auth';
 import { ADD_PRODUCT } from '../../utils/mutations';
 
 function ProductForm(props) {
-    const [formState, setFormState] = useState({ name: '', description: '', image: '', quantity: 0,  price: 0});
+    const [formState, setFormState] = useState({ name: '', description: '', image: '', quantity: 0,  price: 0.00});
     const [addProduct, { error }] = useMutation(ADD_PRODUCT);
 
     const handleFormSubmit = async (event) => {
@@ -15,15 +15,15 @@ function ProductForm(props) {
 
       const { data } = await addProduct({
           variables: {
-            userId: "6296ab84c6478fa1ff5cb2f6",
-            // productData: {
-            //     name: formState.name,
-            //     description: formState.description,
-            //     image: formState.image,
-            //     quantity: formState.quantity,
-            //     price: formState.price,
-            //     user: "6296ab84c6478fa1ff5cb2f6"
-            // }
+            userId: "6297ac07464edc29b66fa63c",
+            productData: {
+                name: formState.name,
+                description: formState.description,
+                image: formState.image,
+                quantity: formState.quantity,
+                price: formState.price,
+                user: "6297ac07464edc29b66fa63c"
+            }
           },
         })
 
