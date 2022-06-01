@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
+import { Nav, Navbar, NavDropdown, Container } from "react-bootstrap";
 import logo from '../../assets/logo2.PNG'
 import { useQuery } from '@apollo/client';
 import { useStoreContext } from '../../utils/GlobalState';
@@ -10,10 +11,10 @@ import {
 } from '../../utils/actions';
 import { QUERY_CATEGORIES } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
-import {FaBars, FaTimes } from 'react-icons/fa';
+import {FaBars, FaTimes, FaRegUser } from 'react-icons/fa';
 
 
-function Nav() {
+function Navigation() {
   const [state, dispatch] = useStoreContext();
 
   const { categories } = state;
@@ -68,12 +69,12 @@ function Nav() {
         <ul className="flex-row">
           <li className="mx-1">
             <Link to="/profile">
-              Account
+            <FaRegUser />
             </Link>
           </li>
           <li className="mx-1">
             <Link to="/login">
-              Login
+            Login
             </Link>
           </li>
           <li className="mx-1">
@@ -87,43 +88,76 @@ function Nav() {
   }
 
   return (
-    <header className="flex-row px-1 header">
-      <h1 className="title">
-        <Link to="/">
-          <img alt="logo" src={logo} className='logo' />
-        </Link>
-      </h1>
+    // <header className="flex-row px-1 header">
+    //   <h1 className="title">
+    //     <Link to="/">
+    //       <img alt="logo" src={logo} className='logo' />
+    //     </Link>
+    //   </h1>
 
-      <nav>
-        {showNavigation()}
+    //   <nav>
+    //           {/* Hamburger
+    //   <div onClick={handleNavClick} className=''>
+    //     <FaBars />
+    //   </div> */}
+    //     {showNavigation()}
 
-        {/* <li className="mx-1 menu">
-                <Link to="/">
-                Categories
-                </Link>
-                <ul>
-                    {categories.map((item) => (
-                        <li
-                        key={item._id}
-                        onClick={() => {
-                            handleClick(item._id);
-                        }}
-                        >
-                        {item.name}
-                        </li>
-                    ))}
-                </ul>
-            </li> */}
+    //     {/* <li className="mx-1 menu">
+    //             <Link to="/">
+    //             Categories
+    //             </Link>
+    //             <ul>
+    //                 {categories.map((item) => (
+    //                     <li
+    //                     key={item._id}
+    //                     onClick={() => {
+    //                         handleClick(item._id);
+    //                     }}
+    //                     >
+    //                     {item.name}
+    //                     </li>
+    //                 ))}
+    //             </ul>
+    //         </li> */}
 
-      </nav>
+    //   </nav>
+    // </header>
 
-      {/* Hamburger */}
-      <div onClick={handleClick} className='hidden'>
-         <FaBars /> 
-         {/* <FaTimes /> */}
-      </div>
-    </header>
+    <Navbar collapseOnSelect expand="lg"  variant="dark" className='header'>
+
+      <Container>
+      <Navbar.Brand href="/">
+        <img 
+        alt='logo' 
+        src={logo}
+        width='50'
+        height='50'
+        className='d-inline-block align-top'
+        /> {''}
+       MyAttic
+      </Navbar.Brand>
+      </Container>
+
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
+        <Nav className="mr-auto">
+          <Nav.Link href="/profile">Profile</Nav.Link>
+          <Nav.Link href="/login">Login</Nav.Link>
+          <NavDropdown title="Categories" id="collasible-nav-dropdown">
+            <NavDropdown.Item href="#">Artwork</NavDropdown.Item>
+            <NavDropdown.Item href="#">Furniture</NavDropdown.Item>
+            <NavDropdown.Item href="#">Glassware</NavDropdown.Item>
+            <NavDropdown.Item href="#">Housewares</NavDropdown.Item>
+            <NavDropdown.Item href="#">Instruments</NavDropdown.Item>
+            <NavDropdown.Item href="#">Tableware</NavDropdown.Item>
+          </NavDropdown>
+          <Nav.Link href="/contact">Contact</Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+    
+
   );
 }
 
-export default Nav;
+export default Navigation;

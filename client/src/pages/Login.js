@@ -60,7 +60,7 @@ function Login(props) {
             </div>
           ) : null}
           <div className="flex-row flex-center">
-            <button type="submit">Login</button>
+            <button className="login-button" type="submit">Login</button>
             <Link to="/signup"><button type="submit">Signup</button></Link>
           </div>
         </form>
