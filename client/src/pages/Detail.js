@@ -91,7 +91,7 @@ import spinner from '../assets/spinner.gif';
                 <h3>Description</h3>
                 <span>{currentProduct.description}</span>
             </div>
-            <div>
+            <div className='stock'>
                 <h3>Stock</h3>
                 <span>#</span>
             </div>

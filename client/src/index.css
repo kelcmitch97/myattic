@@ -84,13 +84,16 @@ body {
 
 .header nav .menu li:hover{
     cursor: pointer;
-    text-decoration: underline;
 }
 
 .header nav a{
     text-decoration: none;
     font-size: 2rem;
     color: var(--primary-background-colour);
+}
+
+.header nav a:hover{
+    text-decoration: underline;
 }
 
 button {

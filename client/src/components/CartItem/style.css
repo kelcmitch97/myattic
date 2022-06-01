@@ -11,6 +11,8 @@
 .CartItem{
     background-color: var(--primary-background-colour);
     padding: 0.5rem 1rem;
+    margin-bottom: 1.5vh;
+    max-height: calc(fit-content /2);
 }
 
 .CartItem .ImageContainer {
@@ -25,4 +27,26 @@
 
 .CartItem .InfoContainer p{
     font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+.CartItem .InfoContainer aside{
+    display: flex;
+}
+
+.CartItem .InfoContainer aside p{
+    padding-right: 1rem;
+}
+
+.CartItem .InfoContainer aside input{
+    margin: .5rem;
+}
+
+.CartItem .InfoContainer .trash{
+    font-size: 1.5rem;
+    /* Try to move the trash can to the lower right corner. */
+}
+
+.CartItem .InfoContainer .trash:hover{
+    cursor: pointer;
 }

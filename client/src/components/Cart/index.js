@@ -73,27 +73,27 @@ const Cart = () => {
 
   return (
     <div className="cart">
-      <div className="close" onClick={toggleCart}>
-        <img alt='close' src={close}/>
-      </div>
-      <h2>Shopping Cart</h2>
-      {state.cart.length ? (
-        <div>
-          {state.cart.map((item) => (
-            <CartItem key={item._id} item={item} />
-          ))}
-
-          <div className="flex-row space-between">
-            <strong>Total: ${calculateTotal()}</strong>
-
-            {Auth.loggedIn() ? (
-              <button onClick={submitCheckout}>Checkout</button>
-            ) : (
-              <span>(log in to check out)</span>
-            )}
-          </div>
+        <div className="close" onClick={toggleCart}>
+            <img alt='close' src={close}/>
         </div>
-      ) : (
+        <h2>Shopping Cart</h2>
+        {state.cart.length ? (
+            <div>
+            {state.cart.map((item) => (
+                <CartItem key={item._id} item={item} />
+            ))}
+
+            <section className="flex-row space-between">
+                <strong className='total'>Total: ${calculateTotal()}</strong>
+
+                {Auth.loggedIn() ? (
+                <button onClick={submitCheckout}>Checkout</button>
+                ) : (
+                <div className='message'>(log in to check out)</div>
+                )}
+            </section>
+        </div>
+    ) : (
         <h3>
           Your cart is empty at the moment!
         </h3>

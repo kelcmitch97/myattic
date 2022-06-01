@@ -46,24 +46,25 @@ const CartItem = ({ item }) => {
         />
       </section>
       <section className='InfoContainer'>
-        <h2>{item.name}</h2>
-        <p>${item.price}</p>
-        <div>
-          <span>Qty:</span>
-          <input
-            type="number"
-            placeholder="1"
-            value={item.purchaseQuantity}
-            onChange={onChange}
-          />
-          <span
-            role="img"
-            aria-label="trash"
-            onClick={() => removeFromCart(item)}
-          >
+            <h2>{item.name}</h2>
+            <p>${item.price}</p>
+            <aside>
+                <p>Qty:</p>
+                <input
+                    type="number"
+                    placeholder="1"
+                    value={item.purchaseQuantity}
+                    onChange={onChange}
+                />
+            </aside>
+            <div
+                className='trash'
+                role="img"
+                aria-label="trash"
+                onClick={() => removeFromCart(item)}
+            >
             🗑️
-          </span>
-        </div>
+            </div>
       </section>
     </article>
   );

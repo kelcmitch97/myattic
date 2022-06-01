@@ -10,7 +10,7 @@ import {
 } from '../../utils/actions';
 import { QUERY_CATEGORIES } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
-import {FaBars, FaTimes } from 'react-icons/fa';
+//import {FaBars, FaTimes } from 'react-icons/fa';
 
 
 function Nav() {
@@ -119,7 +119,7 @@ function Nav() {
 
       {/* Hamburger */}
       <div onClick={handleClick} className='hidden'>
-         <FaBars /> 
+         {/* <FaBars /> */}
          {/* <FaTimes /> */}
       </div>
     </header>

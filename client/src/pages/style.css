@@ -60,7 +60,7 @@ img {
 .product {
 	display: grid;
 	grid-template-columns: 0.9fr 1fr;
-	margin: 2rem 4rem;
+	margin: 4rem auto;
 	padding: 2.5em 0;
 	width: 60%;
 	background-color: var(--primary-background-colour);
@@ -138,6 +138,19 @@ img {
 	margin-bottom: 1em;
 }
 
+.description span {
+    font-size: 2rem;
+}
+
+.stock{
+    display: flex;
+}
+
+.stock span {
+    font-size: 2rem;
+    padding-left: 2rem;
+}
+
 .buy--btn {
     height: 60px;
 	border: none;
@@ -196,16 +209,16 @@ img {
 }
 
 .contact-title {
-	font-size: 36px; 
-	line-height: 40px; 
+	font-size: 36px;
+	line-height: 40px;
 	font-weight: bold;
 	border-bottom-width: 4px;
 	border-color: var(--tertiary-colour);
 }
 
 .contact-description {
-	padding-top: 16px; 
-	padding-bottom: 16px; 
+	padding-top: 16px;
+	padding-bottom: 16px;
 }
 
 .contact-button {

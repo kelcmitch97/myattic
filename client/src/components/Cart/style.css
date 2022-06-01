@@ -59,6 +59,7 @@
 
 .cart img {
   margin-right: 1rem;
+  margin-top: 1rem;
 }
 
 .cart-closed span {
@@ -77,6 +78,14 @@
   margin: 0 .5rem 1rem 0;
 }
 
+.cart .total, .cart .message{
+    font-size: 2rem;
+    color: var(--primary-colour);
+}
+
+.cart .message{
+    font-size: 1.3rem;
+}
 @media screen and (max-width: 768px) {
   .cart {
     position: relative;
