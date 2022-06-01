@@ -79,7 +79,7 @@ db.once('open', async () => {
       category: categories[2]._id,
       description:
         'Crystal bowl in classic cross-and-olive pattern; myattic has several similar items',
-      image: 'tablet.jpg',
+      image: 'bowl.jpg',
       price: 39.99,
       quantity: 20
     },
@@ -245,7 +245,12 @@ db.once('open', async () => {
   await User.create({
     username: 'tester',
     email: 'test@test.com',
-    password: 'password12345'
+    password: 'password12345',
+    orders: [
+      {
+        products: [products[0]._id, products[0]._id, products[1]._id]
+      }
+    ]
   });
 
   console.log('users seeded');

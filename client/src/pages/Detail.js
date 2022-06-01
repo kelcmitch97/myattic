@@ -5,48 +5,71 @@ import "./style.css";
 import Cart from '../components/Cart';
 import { useStoreContext } from '../utils/GlobalState';
 import {
-  UPDATE_PRODUCTS,
-} from '../utils/actions';
+    UPDATE_CART_QUANTITY,
+    ADD_TO_CART,
+    UPDATE_PRODUCTS,
+  } from '../utils/actions';
 import { QUERY_PRODUCTS } from '../utils/queries';
 import { idbPromise } from '../utils/helpers';
 import spinner from '../assets/spinner.gif';
 
-function Detail() {
-  const [state, dispatch] = useStoreContext();
-  const { id } = useParams();
+    function Detail() {
+        const [state, dispatch] = useStoreContext();
+        const { id } = useParams();
 
-  const [currentProduct, setCurrentProduct] = useState({});
+        const [currentProduct, setCurrentProduct] = useState({});
 
-  const { loading, data } = useQuery(QUERY_PRODUCTS);
+        const { loading, data } = useQuery(QUERY_PRODUCTS);
 
-  const { products, cart } = state;
+        const { products, cart } = state;
 
-  useEffect(() => {
-    // already in global store
-    if (products.length) {
-      setCurrentProduct(products.find((product) => product._id === id));
-    }
-    // retrieved from server
-    else if (data) {
-      dispatch({
-        type: UPDATE_PRODUCTS,
-        products: data.products,
-      });
+        useEffect(() => {
+          // already in global store
+          if (products.length) {
+            setCurrentProduct(products.find((product) => product._id === id));
+          }
+          // retrieved from server
+          else if (data) {
+            dispatch({
+              type: UPDATE_PRODUCTS,
+              products: data.products,
+            });
 
-      data.products.forEach((product) => {
-        idbPromise('products', 'put', product);
-      });
-    }
-    // get cache from idb
-    else if (!loading) {
-      idbPromise('products', 'get').then((indexedProducts) => {
-        dispatch({
-          type: UPDATE_PRODUCTS,
-          products: indexedProducts,
-        });
-      });
-    }
-  }, [products, data, loading, dispatch, id]);
+            data.products.forEach((product) => {
+              idbPromise('products', 'put', product);
+            });
+          }
+          // get cache from idb
+          else if (!loading) {
+            idbPromise('products', 'get').then((indexedProducts) => {
+              dispatch({
+                type: UPDATE_PRODUCTS,
+                products: indexedProducts,
+              });
+            });
+          }
+        }, [products, data, loading, dispatch, id]);
+
+        const addToCart = () => {
+          const itemInCart = cart.find((cartItem) => cartItem._id === id);
+          if (itemInCart) {
+            dispatch({
+              type: UPDATE_CART_QUANTITY,
+              _id: id,
+              purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
+            });
+            idbPromise('cart', 'put', {
+              ...itemInCart,
+              purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
+            });
+          } else {
+            dispatch({
+              type: ADD_TO_CART,
+              product: { ...currentProduct, purchaseQuantity: 1 },
+            });
+            idbPromise('cart', 'put', { ...currentProduct, purchaseQuantity: 1 });
+          }
+        };
 
   return (
     <>
@@ -71,8 +94,32 @@ function Detail() {
             <div>
                 <h3>Stock</h3>
                 <span>#</span>
+<<<<<<< HEAD
                 <button className="buy--btn">ADD TO CART</button>
+=======
+>>>>>>> origin/css-modify
             </div>
+            <section className='bottomSection'>
+                <button onClick={addToCart} className="buy--btn">ADD TO CART</button>
+                <form>
+                    <div className="value-button" id="decrease"
+                        onClick={() => {
+                            var value = parseInt(document.getElementById('number').value, 10);
+                            value = isNaN(value) ? 0 : value;
+                            if (value < 1 ? value = 1 : '');
+                            value--;
+                            document.getElementById('number').value = value;
+                        }}
+                        value="Decrease Value">-</div>
+                    <input type="number" id="number" value="0" />
+                    <div className="value-button" id="increase" onClick={() => {
+                            var value = parseInt(document.getElementById('number').value, 10);
+                            value = isNaN(value) ? 0 : value;
+                            value++;
+                            document.getElementById('number').value = value;
+                        }} value="Increase Value">+</div>
+                </form>
+            </section>
         </div>
       </section>
       ) : null}

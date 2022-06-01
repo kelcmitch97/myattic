@@ -1,11 +1,11 @@
 import React from "react";
-import Profile from "../components/Profile";
+import ProductList from "../components/ProductList";
 import Cart from "../components/Cart";
 
 const Home = () => {
   return (
     <div className="home">
-      <Profile />
+      <ProductList />
       <Cart />
     </div>
   );

@@ -1,19 +1,32 @@
+:root {
+    --primary-background-colour: #F4F4F4;
+    --secondary-background-colour: #E9EEF5;
+    --primary-colour: #4A7FAD;
+    --primary-colour-light: #4a7fadaf;
+    --secondary-colour: #ADAB7F;
+    --tertiary-colour: #F5EE51;
+
+    --box-shadox: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
 .cart {
   position: fixed;
   top: 0;
   right: 0;
   min-width: 20%;
-  max-width: 30%;
+  max-width: 60%;
   max-height: 60%;
-  background-color: var(--light);
+  background-color: var(--secondary-background-colour);
   overflow: auto;
   padding: .5rem;
   box-shadow: 0 0 1rem rgba(0, 0, 0, .5);
   border-bottom-left-radius: .5rem;
+  z-index: 100;
 }
 
 .cart h2 {
-  font-size: 1.5rem;
+  font-size: 2rem;
+  color: var(--primary-colour);
   border-bottom: 1px solid var(--dark);
   padding-bottom: .5rem;
   margin: 1rem 0;
@@ -25,10 +38,6 @@
   right: .5rem;
   cursor: pointer;
   color: var(--tertiary);
-}
-
-.cart .close:hover {
-  text-decoration: underline;
 }
 
 .cart-closed {
@@ -49,7 +58,6 @@
 }
 
 .cart img {
-  width: 70px;
   margin-right: 1rem;
 }
 
