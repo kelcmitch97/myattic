@@ -150,11 +150,12 @@ const resolvers = {
     },
 
     addProduct: async (parent, args, context) => {
+      console.log(args)
       if (context.user) {
 
-        const product = await Product.create(args.productData);
+        console.log(args.productData)
 
-        console.log(product)
+        const product = await Product.create(args.productData);
 
         await User.findByIdAndUpdate( 
           { _id: context.user._id },
@@ -162,13 +163,14 @@ const resolvers = {
           { new: true }
         );
 
-        console.log(product)
+        // console.log(product)
 
         return product;
       }
 
       throw new AuthenticationError('You need to be logged in!');
     },
+
     editProduct: async (parent, args, context) => {
 
       if (context.user) {
@@ -221,7 +223,32 @@ const resolvers = {
 
         return product
       }
-    }  
+    },
+
+    productFormAdd: async (parent, args, context) => {
+
+        const product = await Product.create({
+          name: args.name,
+          description: args.description,
+          image: args.image,
+          quantity: args.quantity,
+          price: args.price,
+          user: args.user
+        });
+
+        console.log(product)
+
+        // await User.findByIdAndUpdate( 
+        //   { _id: args.user },
+        //   { $push: { products: product } },
+        //   { new: true }
+        // );
+
+        // console.log(product)
+
+        return product;
+      }
+
   }
 };
 
