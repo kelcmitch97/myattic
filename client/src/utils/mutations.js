@@ -61,3 +61,11 @@ export const ADD_PRODUCT = gql`
   }
 }
 `;
+
+export const REMOVE_PRODUCT = gql`
+  mutation removeProduct($productId: ID!) {
+  removeProduct(productId: $productId) {
+    _id
+  }
+}
+`;

@@ -52,6 +52,8 @@ function ProductForm(props) {
         console.log(e);
       }
 
+      window.location.reload();
+
     }
 
     const handleChange = (event) => {

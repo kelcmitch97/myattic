@@ -9,20 +9,22 @@ import spinner from '../../assets/spinner.gif';
 
 function ProductList() {
 
-  var productUserId = useQuery(QUERY_ME);
+  var productUserData = useQuery(QUERY_ME);
+  var productUsername;
 
-  if (productUserId) {
-    let pUser = productUserId.data
-    
+  if (productUserData) {
+    let pUser = productUserData.data
+
     if (pUser) {
 
-    let me = pUser.me
+      let me = pUser.me
 
-    if (me) {
+      if (me) {
 
-        productUserId = me._id
+        productUserData = me._id
+        productUsername = me.username
 
-    }
+      }
 
     }
 
@@ -72,7 +74,6 @@ function ProductList() {
                         <ProductItem
                         key={product._id}
                         _id={product._id}
-                        user={product.user}
                         image={product.image}
                         name={product.name}
                         price={product.price}

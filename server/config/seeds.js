@@ -145,6 +145,15 @@ db.once('open', async () => {
       price: 199.99,
       quantity: 1
     },
+    // {
+    //   name: 'Korean Secret Box',
+    //   category: categories[3]._id,
+    //   description:
+    //     'Beautiful piece of Korean arts & crafts; opens up to reveal push-out secret drawers; great and practical coffee-table conversation piece.',
+    //   image: 'korean-box.jpg',
+    //   price: 74.99,
+    //   quantity: 1
+    // },
     {
       name: 'Mini Tools Set',
       category: categories[3]._id,

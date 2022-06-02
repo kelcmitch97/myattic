@@ -62,3 +62,15 @@
     visibility : visible;
     transition-delay: 0.2s;
 }
+
+.delete-button {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.delete-button:hover {
+    cursor: pointer;
+}

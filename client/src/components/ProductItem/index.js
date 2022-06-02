@@ -4,8 +4,34 @@ import "./style.css";
 import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
+import { QUERY_ME } from '../../utils/queries';
+import { useQuery, useMutation } from '@apollo/client';
+import { REMOVE_PRODUCT } from '../../utils/mutations';
 
 function ProductItem(item) {
+
+  const [removeProduct, { error }] = useMutation(REMOVE_PRODUCT);
+
+  var productUserData = useQuery(QUERY_ME);
+  var productUsername;
+
+  if (productUserData) {
+    let pUser = productUserData.data
+
+    if (pUser) {
+
+      let me = pUser.me
+
+      if (me) {
+
+        productUserData = me._id
+        productUsername = me.username
+
+      }
+
+    }
+
+  }
 
     const [state, dispatch] = useStoreContext();
 
@@ -40,6 +66,20 @@ function ProductItem(item) {
     }
   }
 
+  const deleteProduct = async (deleteId) => {
+    try {
+      await removeProduct({
+        variables: { productId: deleteId },
+      });
+
+    } catch (err) {
+      console.error(err);
+    }
+
+    window.location.reload();
+
+  }
+
   return (
     <>
         <article className = "itemContainer">
@@ -48,6 +88,13 @@ function ProductItem(item) {
                     <img alt={name} src ={`/images/${image}`}/>
                 </div>
                 <section className = "content">
+                {(() => {
+                  if (user === productUserData) {
+                    return (
+                      <div className="delete-button" onClick={() => deleteProduct(_id)}><ion-icon name="close-circle-outline"></ion-icon></div>
+                    )
+                  }
+                })()}
                     <h3>{name}</h3>
                     <p>${price}</p>
                     <Link to={`/products/${_id}`}>

@@ -78,6 +78,7 @@ function Profile() {
                         <ProductItem
                             key={product._id}
                             _id={product._id}
+                            user={product.user}
                             image={product.image}
                             name={product.name}
                             price={product.price}
