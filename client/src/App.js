@@ -14,6 +14,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Nav from './components/Nav';
 import Contact from './pages/Contact';
+import ProductList from './pages/ProductList';
 import { StoreProvider } from './utils/GlobalState';
 import Success from './pages/Success';
 import OrderHistory from './pages/OrderHistory';
@@ -72,6 +73,10 @@ function App() {
               <Route 
                 path="/products/:id" 
                 element={<Detail />} 
+              />
+              <Route 
+                path="/productlist/" 
+                element={<ProductList />} 
               />
               <Route 
                 path="*" 

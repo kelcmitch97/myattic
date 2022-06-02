@@ -1,7 +1,6 @@
 import React from 'react';
 import "./style.css"
 import { Link } from 'react-router-dom';
-import ProductList from '../ProductList';
 import HeroImg from '../../assets/hero2.PNG';
 
 const Hero = () => {
@@ -15,8 +14,7 @@ const Hero = () => {
 
                 <p>Reduce waste and repurpose classic charming hard-to-find stuff!</p>
 
-                <Link to="/productlist"><button type="submit">Our Products</button></Link>
-
+                <Link to={`/productlist/`}><button type="submit">Our Products</button></Link>
 
             </div>
 
