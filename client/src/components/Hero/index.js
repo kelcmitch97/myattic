@@ -9,12 +9,12 @@ const Hero = () => {
         <div className="hero-banner">
             <div className="left-side">
 
-                <h1>Upload Your</h1>
-                <h2>Downsize</h2>
-
+                <h1>Upload Your Downsize</h1>
+                {/* <h2>Downsize</h2> */}
+                
                 <p>Reduce waste and repurpose classic charming hard-to-find stuff!</p>
 
-                <Link to={`/productlist/`}><button type="submit">Our Products</button></Link>
+                <Link to={`/productlist/`}><button type="submit">View Products</button></Link>
 
             </div>
 

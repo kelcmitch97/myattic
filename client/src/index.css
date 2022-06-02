@@ -23,6 +23,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
 }
 
 body {
@@ -31,13 +32,13 @@ body {
     font-weight: 400;
     line-height: 1.5;
     font-size: 16px;
-    font-family: 'Raleway', sans-serif;
 }
 
 .header {
     background: var(--primary-colour-light);
     box-shadow: var(--box-shadox);
-    display: flex;
+    /* display: flex; */
+    height: auto;
     font-family: 'Raleway', sans-serif;
 }
 
@@ -53,14 +54,14 @@ body {
     text-decoration: none;
 }
 
-.header {
+/* .header {
   height: 80px;
   display: flex;
   align-items: center;
   position: relative;
-}
+} */
 
-.header a:hover{
+/* .header a:hover{
     text-decoration: none;
     cursor: pointer;
 }
@@ -95,7 +96,7 @@ body {
     text-decoration: none;
     font-size: 2rem;
     color: var(--primary-background-colour);
-}
+} */
 
 button {
   font-size: 1rem;
