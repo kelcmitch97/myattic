@@ -36,7 +36,7 @@ And those who find themselves inheriting the stuff of family and friends seek he
 - SO THAT, as individuals and society, we can reduce waste and repurpose items by bringing community together and give our great stuff a new home
 
 ## How It Works
-TO REVISE...
+
 - The MyAttic site presents the user with a homepage and invites them to login or register
 - The nav bar provides anchors for Home, About, Events, Profile, and Contact.
 - The About page provides information about the thereWillBeCode team and the MyAttic application
@@ -69,7 +69,8 @@ npm run develop
 ```
 
 ## Screenshots
-to decide what these are this time
+
+![home](')
 
 
 ## Technologies Used
@@ -94,4 +95,4 @@ to decide what these are this time
 [MyAttic](https://github.com/kelcmitch97/myattic)
 
 ## Deployed app
-[MyAttic](https://myattic.herokuapp.com)
+[MyAttic](https://myattic-therewillbecodetoo.herokuapp.com/)
