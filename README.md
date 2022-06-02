@@ -79,6 +79,3 @@ to decide what these are this time
 
 ## Deployed app
 [MyAttic](https://myattic.herokuapp.com)
-
-## License
-Kelcie: any info here this time?
