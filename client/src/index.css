@@ -13,7 +13,7 @@
     --spacing-two: calc(1rem);
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap'); */
 
 * {
     padding: 0;
@@ -85,7 +85,7 @@ input {
   border: 1px solid var(--dark);
   outline: none;
   border-radius: 3px;
-  transition: box-shadow 0.2s;
+  transition:0.2s;
 }
 
 textarea {

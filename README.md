@@ -70,7 +70,13 @@ npm run develop
 
 ## Screenshots
 
-![home](')
+![home](/client/public/images/readme/home.jpg)
+
+![products](/client/public/images/readme/products.jpg)
+
+![profile](/client/public/images/readme/profile.jpg)
+
+
 
 
 ## Technologies Used
