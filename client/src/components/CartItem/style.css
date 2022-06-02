@@ -6,7 +6,7 @@
     position: relative;
     padding: 0.5rem 1rem;
     margin-bottom: 1.5vh;
-    max-height: calc(fit-content /2);
+    /* max-height: calc(fit-content); */
     background-color: var(--primary-background-colour);
 }
 
