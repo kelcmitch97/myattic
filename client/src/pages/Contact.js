@@ -37,8 +37,8 @@ const Contact = () => {
     };
 
     return (
-        <div className='contact-page-container'>
-            <div className='contact-container'>
+        <article className='contact-page-container'>
+            <section className='contact-container'>
                 <form onSubmit={handleSubmit} method='POST' action='https://getform.io/f/3f840aab-1948-44fd-b449-a15e9d8dce7f' className='contact-form'>
                     <div className='contact-text'>
                         <p className='contact-title'>Get in Touch</p>
@@ -54,9 +54,8 @@ const Contact = () => {
                     )}
                     <button type='submit' className='contact-button'>Lets Chat!</button>
                 </form>
-
-            </div>
-        </div>
+            </section>
+        </article>
     )
 }
 

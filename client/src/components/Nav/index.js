@@ -86,44 +86,44 @@ function Nav() {
     }
   }
 
-  return (
-    <header className="flex-row px-1 header">
-      <h1 className="title">
-        <Link to="/">
-          <img alt="logo" src={logo} className='logo' />
-        </Link>
-      </h1>
-
-      <nav>
-        {showNavigation()}
-
-        {/* <li className="mx-1 menu">
+    return (
+        <header className="flex-row px-1 header">
+            <h1 className="title">
                 <Link to="/">
-                Categories
+                    <img alt="logo" src={logo} className='logo' />
                 </Link>
-                <ul>
-                    {categories.map((item) => (
-                        <li
-                        key={item._id}
-                        onClick={() => {
-                            handleClick(item._id);
-                        }}
-                        >
-                        {item.name}
-                        </li>
-                    ))}
-                </ul>
-            </li> */}
+            </h1>
 
-      </nav>
+            <nav>
+                {showNavigation()}
 
-      {/* Hamburger */}
-      <div onClick={handleClick} className='hidden'>
-         {/* <FaBars /> */}
-         {/* <FaTimes /> */}
-      </div>
-    </header>
-  );
+                {/* <li className="mx-1 menu">
+                    <Link to="/">
+                    Categories
+                    </Link>
+                    <ul>
+                        {categories.map((item) => (
+                            <li
+                            key={item._id}
+                            onClick={() => {
+                                handleClick(item._id);
+                            }}
+                            >
+                            {item.name}
+                            </li>
+                        ))}
+                    </ul>
+                    </li> */
+                }
+            </nav>
+
+            {/* Hamburger */}
+            <div onClick={handleClick} className='hidden'>
+                {/* <FaBars /> */}
+                {/* <FaTimes /> */}
+            </div>
+        </header>
+    );
 }
 
 export default Nav;

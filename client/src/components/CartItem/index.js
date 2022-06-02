@@ -39,12 +39,9 @@ const CartItem = ({ item }) => {
 
   return (
     <article className="CartItem flex-row">
-      <section className='ImageContainer'>
-        <img
-          src={`/images/${item.image}`}
-          alt={`${item.image}`}
-        />
-      </section>
+        <section className='ImageContainer'>
+            <img src={`/images/${item.image}`} alt={`${item.image}`}/>
+        </section>
       <section className='InfoContainer'>
             <h2>{item.name}</h2>
             <p>${item.price}</p>
@@ -65,7 +62,7 @@ const CartItem = ({ item }) => {
             >
             🗑️
             </div>
-      </section>
+        </section>
     </article>
   );
 }

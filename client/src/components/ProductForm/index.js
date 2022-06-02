@@ -43,65 +43,64 @@ function ProductForm(props) {
 
     return (
         <>
-            <div className="container my-1">
-
-      <h2>Add Product</h2>
-      <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="name">Product Name:</label>
-          <input
-            placeholder="Product name"
-            name="name"
-            type="name"
-            id="name"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="description">Product Description:</label>
-          <input
-            placeholder="Description..."
-            name="description"
-            type="text"
-            id="description"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="image">Product Image:</label>
-          <input
-            placeholder="image"
-            name="image"
-            type="text"
-            id="image"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="price">Product Price:</label>
-          <input
-            placeholder="Price"
-            name="price"
-            type="decimal"
-            id="price"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="quantity">Product Quantity:</label>
-          <input
-            placeholder="Quantity"
-            name="quantity"
-            type="number"
-            id="quantity"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
+            <article className="container my-1">
+                <h2>Add Product</h2>
+                <form onSubmit={handleFormSubmit}>
+                    <section className="flex-row space-between my-2">
+                        <label htmlFor="name">Product Name:</label>
+                        <input
+                            placeholder="Product name"
+                            name="name"
+                            type="name"
+                            id="name"
+                            onChange={handleChange}
+                        />
+                    </section>
+                    <section className="flex-row space-between my-2">
+                        <label htmlFor="description">Product Description:</label>
+                        <input
+                            placeholder="Description..."
+                            name="description"
+                            type="text"
+                            id="description"
+                            onChange={handleChange}
+                        />
+                    </section>
+                    <section className="flex-row space-between my-2">
+                        <label htmlFor="image">Product Image:</label>
+                        <input
+                            placeholder="image"
+                            name="image"
+                            type="text"
+                            id="image"
+                            onChange={handleChange}
+                        />
+                    </section>
+                    <section className="flex-row space-between my-2">
+                        <label htmlFor="price">Product Price:</label>
+                        <input
+                            placeholder="Price"
+                            name="price"
+                            type="decimal"
+                            id="price"
+                            onChange={handleChange}
+                        />
+                    </section>
+                    <section className="flex-row space-between my-2">
+                        <label htmlFor="quantity">Product Quantity:</label>
+                        <input
+                            placeholder="Quantity"
+                            name="quantity"
+                            type="number"
+                            id="quantity"
+                            onChange={handleChange}
+                        />
+                    </section>
+                    <section className="flex-row flex-end">
+                        <button type="submit">Submit</button>
+                    </section>
+                </form>
+            </article>
         </>
     );
 }

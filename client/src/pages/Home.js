@@ -5,11 +5,11 @@ import ProductForm from "../components/ProductForm";
 
 const Home = () => {
   return (
-    <div className="home">
+    <main className="home">
       <ProductForm />
       <ProductList />
       <Cart />
-    </div>
+    </main>
   );
 };
 

@@ -1,36 +1,24 @@
-/* *{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-} */
-
-:root {
-    --primary-background-colour: #F4F4F4;
-    --secondary-background-colour: #E9EEF5;
+:root{
     --primary-colour: #4A7FAD;
-    --primary-colour-light: #4a7fadaf;
     --secondary-colour: #ADAB7F;
     --tertiary-colour: #F5EE51;
-
-    --box-shadox: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    --colour-shadow: #a6a6a6;
+    --color-highlight: #ff3f40;
+    --primary-colour-light: #4a7fadaf;
+    --primary-background-colour: #F4F4F4;
+    --secondary-background-colour: #E9EEF5;
 }
 
-root{/* ----- Variables ----- */
---color-primary: #4c4c4c;
---color-secondary: #a6a6a6;
---color-highlight: #ff3f40;}
-
 /* ----- Global ----- */
-* {
+*{
 	box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
 	height: 100%;
 }
 
-body {
+body{
 	display: grid;
 	grid-template-rows: 1fr;
 	font-family: "Raleway", sans-serif;
@@ -45,7 +33,7 @@ h3 {
 
 img {
 	max-width: 100%;
-	filter: drop-shadow(1px 1px 3px var(--color-secondary));
+	filter: drop-shadow(1px 1px 3px var(--colour-shadow));
 }
 
 .logo{
@@ -115,7 +103,7 @@ img {
 
 .title span {
 	font-size: 0.7em;
-	color: var(--color-secondary);
+	color: var(--colour-shadow);
 }
 
 
@@ -238,9 +226,9 @@ form {
     width: 300px;
     margin: 0 auto;
     text-align: center;
-  }
+}
 
-  .value-button {
+.value-button {
     display: inline-block;
     border: 1px solid #ddd;
     margin: 0px;
@@ -254,47 +242,47 @@ form {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-  }
+}
 
-  .value-button:hover {
+.value-button:hover {
     cursor: pointer;
-  }
+}
 
-  form #decrease {
+form #decrease {
     margin-right: -4px;
     border-radius: 8px 0 0 8px;
     color: var(--secondary-colour);
     background-color: var(--tertiary-colour);
-  }
+}
 
-  form #increase {
+form #increase {
     margin-left: -4px;
     border-radius: 0 8px 8px 0;
     color: var(--secondary-colour);
     background-color: var(--tertiary-colour);
-  }
+}
 
-  form #input-wrap {
+form #input-wrap {
     margin: 0px;
     padding: 0px;
-  }
+}
 
-  input#number {
+input#number {
     text-align: center;
     border: none;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
     margin: 0px;
     width: 40px;
-  }
+}
 
-  input[type=number]::-webkit-inner-spin-button,
-  input[type=number]::-webkit-outer-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-  }
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
-  .bottomSection {
-      display: flex;
-      align-items: center;
-  }
+.bottomSection {
+    display: flex;
+    align-items: center;
+}
