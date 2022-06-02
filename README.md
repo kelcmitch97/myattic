@@ -45,12 +45,28 @@ TO REVISE...
 - Users looking to buy items can register/sign-up and gain access to items/products for sale and add them to their shopping cart
 
 ## Installation Guide
-to discuss and add step-by-step installation instructions...
-npm i dependencies
+This application requires the following installations:
+
+- Node.JS
+- MongoDB
+
+To install dependencies to all folders target the main folder (/myattic). Using the following input within the terminal will download dependencies to all folders (/myattic, ./client, ./server):
+
+```shell
+npm i
+```
+
+To seed user data input the following within the terminal at the main directory (/myattic):
+
+```shell
 npm run seed
+```
+
+To initiate the application locally input the following within the terminal at the main directory (/myattic):
+
+```shell
 npm run develop
-(npm run deploy)
-also to address user end
+```
 
 ## Screenshots
 to decide what these are this time
