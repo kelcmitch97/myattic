@@ -162,6 +162,8 @@ const resolvers = {
           { new: true }
         );
 
+        console.log(product)
+
         return product;
       }
 

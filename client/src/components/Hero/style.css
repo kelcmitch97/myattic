@@ -1,0 +1,45 @@
+.hero-banner {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    background: red;
+    margin-top: 30px;
+    flex-direction: row;
+}
+
+.hero-banner .left-side {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    background: blue;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-side h1 {
+    height: 100px;
+    display: flex;
+}
+
+.left-side p {
+    height: 100px;
+    display: flex;
+    font-size: 18px;
+}
+
+.left-side button {
+
+}
+
+.hero-banner .right-side {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    background: green;
+}
+
+.right-side img {
+
+}

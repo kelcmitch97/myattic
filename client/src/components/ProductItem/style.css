@@ -24,7 +24,7 @@
 
   .container .card {
     position: relative;
-    max-width : 300px;
+    width : 300px;
     height : 215px;
     background-color : #fff;
     margin : 30px 10px;
@@ -42,18 +42,22 @@
 
   .container .card .image {
     position : relative;
-    width : 260px;
-    height : 260px;
+    width: 200px;
+    height: 200px;
+
+    object-fit: contain;
 
     top : -40%;
-    left: 8px;
+    display: flex;
+    align-self: center;
     box-shadow : 0 5px 20px rgba(0,0,0,0.2);
     z-index : 1;
   }
 
   .container .card .image img {
-    max-width : 260px;
-    max-height: 260px;
+    width : 200px;
+    height: 200px;
+    display: flex;
   }
 
   .container .card .content {
