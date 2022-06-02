@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { validateEmail } from '../utils/helpers';
+import Cart from "../components/Cart";
 
 const Contact = () => {
 

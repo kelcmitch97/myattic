@@ -69,7 +69,7 @@ function Profile() {
     }
 
     return (
-        <article className="my-2">
+        <article className="container my-1">
             <h2>User's Products:</h2>
             {state.products.length ? (
                 <div className="flex-row">

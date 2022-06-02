@@ -15,6 +15,7 @@ import Signup from './pages/Signup';
 import Nav from './components/Nav';
 import Contact from './pages/Contact';
 import About from './pages/About';
+import Profile from './pages/Profile';
 import ProductList from './pages/ProductList';
 import { StoreProvider } from './utils/GlobalState';
 import Success from './pages/Success';
@@ -70,6 +71,10 @@ function App() {
               <Route 
                 path="/success" 
                 element={<Success />} 
+              />
+              <Route 
+                path="/profile" 
+                element={<Profile />} 
               />
               <Route 
                 path="/orderHistory" 
