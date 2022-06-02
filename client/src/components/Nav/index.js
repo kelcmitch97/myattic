@@ -92,6 +92,7 @@ function Navigation() {
        MyAttic
       </Navbar.Brand>
         <Nav className="mr-auto">
+        <Nav.Link href="/productlist">Products</Nav.Link>
           <Nav.Link href="/profile">Profile</Nav.Link>
         
           <NavDropdown title="Categories" id="collasible-nav-dropdown" >
@@ -125,6 +126,7 @@ function Navigation() {
        MyAttic
       </Navbar.Brand>
         <Nav className="mr-auto">
+        <Nav.Link href="/productlist">Products</Nav.Link>
           <Nav.Link href="/login">Login</Nav.Link>
         
           <NavDropdown title="Categories" id="collasible-nav-dropdown" >

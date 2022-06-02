@@ -3,11 +3,31 @@ import ProductItem from '../ProductItem';
 import { useStoreContext } from '../../utils/GlobalState';
 import { UPDATE_PRODUCTS } from '../../utils/actions';
 import { useQuery } from '@apollo/client';
-import { QUERY_PRODUCTS } from '../../utils/queries';
+import { QUERY_PRODUCTS, QUERY_ME } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import spinner from '../../assets/spinner.gif';
 
 function ProductList() {
+
+  var productUserId = useQuery(QUERY_ME);
+
+  if (productUserId) {
+    let pUser = productUserId.data
+    
+    if (pUser) {
+
+    let me = pUser.me
+
+    if (me) {
+
+        productUserId = me._id
+
+    }
+
+    }
+
+  }
+
   const [state, dispatch] = useStoreContext();
 
   const { currentCategory } = state;
@@ -52,6 +72,7 @@ function ProductList() {
                         <ProductItem
                         key={product._id}
                         _id={product._id}
+                        user={product.user}
                         image={product.image}
                         name={product.name}
                         price={product.price}

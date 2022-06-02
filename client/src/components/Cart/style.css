@@ -28,7 +28,7 @@
 }
 
 .cart h3{
-    width: 100px;
+    width: fit-content;
 }
 
 .cart .close{
