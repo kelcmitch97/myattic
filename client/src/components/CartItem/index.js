@@ -43,7 +43,7 @@ const CartItem = ({ item }) => {
             <img src={`/images/${item.image}`} alt={`${item.image}`}/>
         </section>
       <section className='InfoContainer'>
-            <h2>{item.name}</h2>
+            <h3>{item.name}</h3>
             <p>${item.price}</p>
             <aside>
                 <p>Qty:</p>

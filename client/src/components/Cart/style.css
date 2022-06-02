@@ -7,9 +7,9 @@
 .cart{
     top: 0;
     right: 0;
+    width: 40%;
     z-index: 100;
     min-width: 20%;
-    max-width: 60%;
     max-height: 60%;
     position: fixed;
     overflow: auto;
@@ -19,12 +19,16 @@
     background-color: var(--secondary-background-colour);
 }
 
-.cart h2{
+.cart h2, .cart h3{
     margin: 1rem 0;
     font-size: 2rem;
     padding-bottom: .5rem;
     color: var(--primary-colour);
     border-bottom: 1px solid var(--dark);
+}
+
+.cart h3{
+    width: 100px;
 }
 
 .cart .close{
@@ -82,11 +86,14 @@
 }
 @media screen and (max-width: 768px){
     .cart {
-        max-width: 100%;
+        width: 75%;
         max-height: auto;
         box-shadow: none;
         position: relative;
         background-color: inherit;
+    }
+    .cart h2, .cart .total, .cart .message{
+        font-size: 1.5rem;
     }
 
     .cart-closed{

@@ -109,7 +109,7 @@ img {
 
 .price {
 	margin: 1.5em 0;
-	color: var(--color-highlight);
+	color: var(--secondary-colour);
 	font-size: 1.7rem;
 }
 
@@ -146,7 +146,7 @@ img {
 	font-size: 0.8em;
 	font-weight: 700;
 	letter-spacing: 1.3px;
-	color: var(--secondary-colour);
+	color: var(--primary-colour);
 	background-color: var(--tertiary-colour);
 	box-shadow: 2px 2px 25px -7px var(--secondary-colour);
 	cursor: pointer;
@@ -251,14 +251,14 @@ form {
 form #decrease {
     margin-right: -4px;
     border-radius: 8px 0 0 8px;
-    color: var(--secondary-colour);
+    color: var(--primary-colour);
     background-color: var(--tertiary-colour);
 }
 
 form #increase {
     margin-left: -4px;
     border-radius: 0 8px 8px 0;
-    color: var(--secondary-colour);
+    color: var(--primary-colour);
     background-color: var(--tertiary-colour);
 }
 

@@ -41,14 +41,14 @@ function ProductItem(item) {
 
   return (
     <>
-        <article className = "container">
+        <article className = "itemContainer">
             <section className = "card">
                 <div className = "image">
                     <img alt={name} src ={`/images/${image}`}/>
                 </div>
                 <section className = "content">
                     <h3>{name}</h3>
-                    <p>{price}</p>
+                    <p>${price}</p>
                     <Link to={`/products/${_id}`}>
                         <button>Details</button>
                     </Link>

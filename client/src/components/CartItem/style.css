@@ -3,6 +3,7 @@
 }
 
 .CartItem{
+    position: relative;
     padding: 0.5rem 1rem;
     margin-bottom: 1.5vh;
     max-height: calc(fit-content /2);
@@ -11,13 +12,20 @@
 
 .CartItem .ImageContainer {
     width: 50%;
-    text-align: center;
+    max-height: 8rem;
+    position: relative;
 }
 
 .CartItem .ImageContainer img {
-    margin: 0;
+    margin: auto;
     width: 90%;
-
+    height: 150px;
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
 .CartItem .InfoContainer p{
@@ -39,9 +47,20 @@
 
 .CartItem .InfoContainer .trash{
     font-size: 1.5rem;
-    /* Try to move the trash can to the lower right corner. */
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
 }
 
 .CartItem .InfoContainer .trash:hover{
     cursor: pointer;
+}
+
+@media screen and (max-width: 768px){
+    .CartItem .InfoContainer h3{
+        font-size: 1.3rem;
+    }
+    .CartItem .InfoContainer p{
+        font-size: 1.3rem;
+    }
 }

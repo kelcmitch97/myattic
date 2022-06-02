@@ -207,7 +207,22 @@ input:focus {
 }
 
 @media screen and (max-width: 768px) {
-  .card {
-    width: 100%;
-  }
+    body{
+        margin: 0;
+    }
+    .home{
+        width: 100%;
+    }
+
+    .home article h2{
+        padding-left: 2rem;
+    }
+
+    .card {
+        width: 90%;
+    }
+
+    .itemContainer {
+        width: 80%;
+    }
 }
