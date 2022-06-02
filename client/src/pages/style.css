@@ -196,6 +196,10 @@ img {
 	/* align-items: center; */
 }
 
+.contact-form input {
+	margin-top: 20px;
+}
+
 .contact-text {
 	padding-bottom: 32px;
 	text-align: center;
@@ -226,6 +230,7 @@ img {
 	border-radius: 25px;
 	color: var( --primary-colour-light);
 	font-weight: 600;
+	margin: 20px 0px;
 }
 
 .about-page-container {
@@ -254,6 +259,31 @@ img {
 	display: flex;
 	justify-content: center;
 	padding: 30px;
+}
+
+.login-container form button {
+	margin-right: 10px;
+}
+
+.login-container form button:nth-child(2) {
+	margin-right: 0;
+}
+
+.content button {
+	margin-right: 10px;
+}
+
+.content button:nth-child(2) {
+	margin-right: 0;
+}
+
+.content h3 {
+	margin-top: 10px;
+	font-size: 20px;
+}
+
+.content p {
+	font-size: 24px;
 }
 
 .login-title, .signup-title {

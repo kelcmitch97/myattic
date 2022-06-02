@@ -12,6 +12,7 @@ import spinner from '../../assets/spinner.gif';
 function Profile() {
 
   var productUserData = useQuery(QUERY_ME);
+  var productUsername;
 
   if (productUserData) {
     let pUser = productUserData.data
@@ -23,6 +24,7 @@ function Profile() {
       if (me) {
 
         productUserData = me._id
+        productUsername = me.username
 
       }
 
@@ -70,7 +72,7 @@ function Profile() {
 
     return (
         <article className="container my-1">
-            <h2>User's Products:</h2>
+            <h2>{productUsername}'s Products:</h2>
             {state.products.length ? (
                 <div className="flex-row">
                     {filterProducts().map((product) => (

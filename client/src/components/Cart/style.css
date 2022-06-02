@@ -32,11 +32,12 @@
 }
 
 .cart .close{
-    top: .5rem;
-    right: .5rem;
+    top: 0px;
+    right: 0px;
     cursor: pointer;
     position: absolute;
     color: var(--tertiary);
+    z-index: 3;
 }
 
 .cart-closed{
@@ -49,6 +50,7 @@
     cursor: pointer;
     padding: .25rem;
     border-radius: 50%;
+    z-index: 3;
 }
 
 .cart-closed:hover{

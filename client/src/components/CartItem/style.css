@@ -28,7 +28,15 @@
     margin: auto;
 }
 
-.CartItem .InfoContainer p{
+.CartItem .InfoContainer {
+    margin-left: 20px;
+}
+
+.CartItem .InfoContainer h3{
+    width: fit-content;
+}
+
+.CartItem .InfoContainer p {
     font-size: 1.5rem;
     line-height: 2rem;
 }
@@ -43,6 +51,8 @@
 
 .CartItem .InfoContainer aside input{
     margin: .5rem;
+    display: flex;
+    text-align: center;
 }
 
 .CartItem .InfoContainer .trash{
