@@ -39,32 +39,30 @@ const CartItem = ({ item }) => {
 
   return (
     <article className="CartItem flex-row">
-      <section className='ImageContainer'>
-        <img
-          src={`/images/${item.image}`}
-          alt={`${item.image}`}
-        />
-      </section>
+        <section className='ImageContainer'>
+            <img src={`/images/${item.image}`} alt={`${item.image}`}/>
+        </section>
       <section className='InfoContainer'>
-        <h2>{item.name}</h2>
-        <p>${item.price}</p>
-        <div>
-          <span>Qty:</span>
-          <input
-            type="number"
-            placeholder="1"
-            value={item.purchaseQuantity}
-            onChange={onChange}
-          />
-          <span
-            role="img"
-            aria-label="trash"
-            onClick={() => removeFromCart(item)}
-          >
+            <h3>{item.name}</h3>
+            <p>${item.price}</p>
+            <aside>
+                <p>Qty:</p>
+                <input
+                    type="number"
+                    placeholder="1"
+                    value={item.purchaseQuantity}
+                    onChange={onChange}
+                />
+            </aside>
+            <div
+                className='trash'
+                role="img"
+                aria-label="trash"
+                onClick={() => removeFromCart(item)}
+            >
             🗑️
-          </span>
-        </div>
-      </section>
+            </div>
+        </section>
     </article>
   );
 }

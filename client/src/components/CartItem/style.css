@@ -1,30 +1,73 @@
 :root{
     --primary-background-colour: #F4F4F4;
-    --secondary-background-colour: #E9EEF5;
-    --primary-colour: #4A7FAD;
-    --primary-colour-light: #4a7fadaf;
-    --secondary-colour: #ADAB7F;
-    --tertiary-colour: #F5EE51;
-    --box-shadox: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 .CartItem{
-    background-color: var(--primary-background-colour);
+    position: relative;
     padding: 0.5rem 1rem;
+    margin-bottom: 1.5vh;
+    max-height: calc(fit-content /2);
+    background-color: var(--primary-background-colour);
 }
 
 .CartItem .ImageContainer {
+<<<<<<< HEAD
     width: 160px;
     height: 160px;
     display: flex;
     text-align: center;
+=======
+    width: 50%;
+    max-height: 8rem;
+    position: relative;
+>>>>>>> origin/css-modify
 }
 
 .CartItem .ImageContainer img {
+    margin: auto;
     width: 90%;
-    margin: 0;
+    height: 150px;
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
 .CartItem .InfoContainer p{
     font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+.CartItem .InfoContainer aside{
+    display: flex;
+}
+
+.CartItem .InfoContainer aside p{
+    padding-right: 1rem;
+}
+
+.CartItem .InfoContainer aside input{
+    margin: .5rem;
+}
+
+.CartItem .InfoContainer .trash{
+    font-size: 1.5rem;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+.CartItem .InfoContainer .trash:hover{
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px){
+    .CartItem .InfoContainer h3{
+        font-size: 1.3rem;
+    }
+    .CartItem .InfoContainer p{
+        font-size: 1.3rem;
+    }
 }

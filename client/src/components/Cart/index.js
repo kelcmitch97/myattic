@@ -63,42 +63,42 @@ const Cart = () => {
 
   if (!state.cartOpen) {
     return (
-      <div className="cart-closed" onClick={toggleCart}>
-        <span role="img" aria-label="trash">
+      <section className="cart-closed" onClick={toggleCart}>
+        <aside role="img" aria-label="trash">
         <ion-icon name="cart-outline"></ion-icon>
-        </span>
-      </div>
+        </aside>
+      </section>
     );
   }
 
   return (
-    <div className="cart">
-      <div className="close" onClick={toggleCart}>
-        <img alt='close' src={close}/>
-      </div>
-      <h2>Shopping Cart</h2>
-      {state.cart.length ? (
-        <div>
-          {state.cart.map((item) => (
-            <CartItem key={item._id} item={item} />
-          ))}
+    <article className="cart">
+        <section className="close" onClick={toggleCart}>
+            <img alt='close button image' src={close}/>
+        </section>
+        <h2>Shopping Cart</h2>
+        {state.cart.length ? (
+            <section>
+                {state.cart.map((item) => (
+                    <CartItem key={item._id} item={item} />
+                ))}
 
-          <div className="flex-row space-between">
-            <strong>Total: ${calculateTotal()}</strong>
+                <section className="flex-row space-between">
+                    <strong className='total'>Total: ${calculateTotal()}</strong>
 
-            {Auth.loggedIn() ? (
-              <button onClick={submitCheckout}>Checkout</button>
-            ) : (
-              <span>(log in to check out)</span>
-            )}
-          </div>
-        </div>
-      ) : (
+                    {Auth.loggedIn() ? (
+                    <button onClick={submitCheckout}>Checkout</button>
+                    ) : (
+                    <aside className='message'>(log in to check out)</aside>
+                    )}
+                </section>
+            </section>
+    ) : (
         <h3>
           Your cart is empty at the moment!
         </h3>
       )}
-    </div>
+    </article>
   );
 };
 

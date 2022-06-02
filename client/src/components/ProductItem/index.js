@@ -41,20 +41,20 @@ function ProductItem(item) {
 
   return (
     <>
-        <article className = "container">
-            <div className = "card">
+        <article className = "itemContainer">
+            <section className = "card">
                 <div className = "image">
                     <img alt={name} src ={`/images/${image}`}/>
                 </div>
-                <div className = "content">
+                <section className = "content">
                     <h3>{name}</h3>
-                    <p>{price}</p>
+                    <p>${price}</p>
                     <Link to={`/products/${_id}`}>
                         <button>Details</button>
                     </Link>
                     <button onClick={addToCart}>Add to cart</button>
-                </div>
-            </div>
+                </section>
+            </section>
         </article>
     </>
   );

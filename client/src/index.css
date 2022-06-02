@@ -5,16 +5,12 @@
     --primary-colour-light: #4a7fadaf;
     --secondary-colour: #ADAB7F;
     --tertiary-colour: #F5EE51;
-
     --box-shadox: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-  --primary: #232F3E;
-  --secondary: #F3A847;
-  --tertiary: #B12704;
-  --light: #fafafa;
-  --dark: #272f32;
-  --error: rgb(228, 46, 1);
-  --spacing-one: calc(1rem * 0.5);
-  --spacing-two: calc(1rem);
+    --secondary: #F3A847;
+    --dark: #272f32;
+    --error: rgb(228, 46, 1);
+    --spacing-one: calc(1rem * 0.5);
+    --spacing-two: calc(1rem);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
@@ -27,11 +23,11 @@
 }
 
 body {
-    background-color: var(--primary-background-colour);
+    font-size: 16px;
     min-height: 100%;
     font-weight: 400;
     line-height: 1.5;
-    font-size: 16px;
+    background-color: var(--primary-background-colour);
 }
 
 .header {
@@ -89,7 +85,6 @@ body {
 
 .header nav .menu li:hover{
     cursor: pointer;
-    text-decoration: underline;
 }
 
 .header nav a{
@@ -97,6 +92,10 @@ body {
     font-size: 2rem;
     color: var(--primary-background-colour);
 } */
+
+.header nav a:hover{
+    text-decoration: underline;
+}
 
 button {
   font-size: 1rem;
@@ -217,7 +216,22 @@ input:focus {
 }
 
 @media screen and (max-width: 768px) {
-  .card {
-    width: 100%;
-  }
+    body{
+        margin: 0;
+    }
+    .home{
+        width: 100%;
+    }
+
+    .home article h2{
+        padding-left: 2rem;
+    }
+
+    .card {
+        width: 90%;
+    }
+
+    .itemContainer {
+        width: 80%;
+    }
 }

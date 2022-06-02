@@ -71,59 +71,58 @@ import spinner from '../assets/spinner.gif';
           }
         };
 
-  return (
-    <>
-      {currentProduct && cart ? (
-        <section className='product'>
-        <div className="product__photo">
-            <div className="photo-container">
-                <div className="photo-main">
-                    <img src={`/images/${currentProduct.image}`} alt={currentProduct.name}/>
-                </div>
-            </div>
-        </div>
-        <div className="product__info">
-            <div className="title">
-                <h1>{currentProduct.name}</h1>
-            </div>
-            <div className="price"><span>${currentProduct.price}</span></div>
-            <div className="description">
-                <h3>Description</h3>
-                <span>{currentProduct.description}</span>
-            </div>
-            <div>
-                <h3>Stock</h3>
-                <span>#</span>
-            </div>
-            <section className='bottomSection'>
-                <button onClick={addToCart} className="buy--btn">ADD TO CART</button>
-                <form>
-                    <div className="value-button" id="decrease"
-                        onClick={() => {
-                            var value = parseInt(document.getElementById('number').value, 10);
-                            value = isNaN(value) ? 0 : value;
-                            if (value < 1 ? value = 1 : '');
-                            value--;
-                            document.getElementById('number').value = value;
-                        }}
-                        value="Decrease Value">-</div>
-                    <input type="number" id="number" value="0" />
-                    <div className="value-button" id="increase" onClick={() => {
-                            var value = parseInt(document.getElementById('number').value, 10);
-                            value = isNaN(value) ? 0 : value;
-                            value++;
-                            document.getElementById('number').value = value;
-                        }} value="Increase Value">+</div>
-                </form>
-            </section>
-        </div>
-      </section>
-      ) : null}
-      {loading ? <img src={spinner} alt="loading" /> : null}
-      <Cart />
-
-    </>
-  );
+    return (
+        <>
+            {currentProduct && cart ? (
+                <article className='product'>
+                    <section className="product__photo">
+                        <aside className="photo-container">
+                            <div className="photo-main">
+                                <img src={`/images/${currentProduct.image}`} alt={currentProduct.name}/>
+                            </div>
+                        </aside>
+                    </section>
+                    <section className="product__info">
+                        <div className="title">
+                            <h1>{currentProduct.name}</h1>
+                        </div>
+                        <div className="price"><span>${currentProduct.price}</span></div>
+                        <div className="description">
+                            <h3>Description</h3>
+                            <span>{currentProduct.description}</span>
+                        </div>
+                        <div className='stock'>
+                            <h3>Stock</h3>
+                            <span>#</span>
+                        </div>
+                        <section className='bottomSection'>
+                            <button onClick={addToCart} className="buy--btn">ADD TO CART</button>
+                            <form>
+                                <div className="value-button" id="decrease"
+                                    onClick={() => {
+                                        var value = parseInt(document.getElementById('number').value, 10);
+                                        value = isNaN(value) ? 0 : value;
+                                        if (value < 1 ? value = 1 : '');
+                                        value--;
+                                        document.getElementById('number').value = value;
+                                    }}
+                                value="Decrease Value">-</div>
+                                <input type="number" id="number" value="0" />
+                                <div className="value-button" id="increase" onClick={() => {
+                                    var value = parseInt(document.getElementById('number').value, 10);
+                                    value = isNaN(value) ? 0 : value;
+                                    value++;
+                                    document.getElementById('number').value = value;
+                                }} value="Increase Value">+</div>
+                            </form>
+                        </section>
+                    </section>
+                </article>
+            ) : null}
+            {loading ? <img src={spinner} alt="loading" /> : null}
+            <Cart />
+        </>
+    );
 }
 
 export default Detail;
