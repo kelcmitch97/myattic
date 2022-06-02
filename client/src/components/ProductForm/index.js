@@ -23,8 +23,6 @@ function ProductForm(props) {
 
             productUserId = me._id
 
-            console.log(productUserId)
-
         }
 
         }
@@ -33,8 +31,6 @@ function ProductForm(props) {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-
-        console.log(formState)
 
         try {
 
@@ -100,6 +96,7 @@ function ProductForm(props) {
                             id="image"
                             onChange={handleChange}
                         />
+                        {/* <input type="file" id="image" name="image" accept="images/*" /> */}
                     </section>
                     <section className="flex-row space-between my-2">
                         <label htmlFor="price">Product Price:</label>

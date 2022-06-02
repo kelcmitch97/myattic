@@ -46,7 +46,6 @@ function Profile() {
         });
         data.products.forEach((product) => {
           idbPromise('products', 'put', product);
-          console.log(product)
         });
       } else if (!loading) {
         idbPromise('products', 'get').then((products) => {

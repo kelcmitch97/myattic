@@ -46,8 +46,6 @@ function Navigation() {
     });
   };
 
-
-  return (
     // <header className="flex-row px-1 header">
     //   <h1 className="title">
     //     <Link to="/">
@@ -80,6 +78,9 @@ function Navigation() {
     //   </nav>
     // </header>
 
+    if (Auth.loggedIn()) {
+      return (
+
     <Navbar collapseOnSelect expand="lg" className='header'>
       <Navbar.Brand href="/">
         <img 
@@ -92,7 +93,6 @@ function Navigation() {
       </Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Link href="/profile">Profile</Nav.Link>
-          <Nav.Link href="/login">Login</Nav.Link>
         
           <NavDropdown title="Categories" id="collasible-nav-dropdown" >
             <NavDropdown.Item href="#">Artwork</NavDropdown.Item>
@@ -110,7 +110,40 @@ function Navigation() {
     </Navbar>
     
 
-  );
+  )
+      } else {
+
+        return (
+          <Navbar collapseOnSelect expand="lg" className='header'>
+      <Navbar.Brand href="/">
+        <img 
+        alt='logo' 
+        src={logo}
+        width='80'
+        height='80'
+        /> {''}
+       MyAttic
+      </Navbar.Brand>
+        <Nav className="mr-auto">
+          <Nav.Link href="/login">Login</Nav.Link>
+        
+          <NavDropdown title="Categories" id="collasible-nav-dropdown" >
+            <NavDropdown.Item href="#">Artwork</NavDropdown.Item>
+            <NavDropdown.Item href="#">Furniture</NavDropdown.Item>
+            <NavDropdown.Item href="#">Glassware</NavDropdown.Item>
+            <NavDropdown.Item href="#">Housewares</NavDropdown.Item>
+            <NavDropdown.Item href="#">Instruments</NavDropdown.Item>
+            <NavDropdown.Item href="#">Tableware</NavDropdown.Item>
+          </NavDropdown>
+          
+          <Nav.Link href="/contact">Contact</Nav.Link>
+          <Nav.Link href="/about">About</Nav.Link>
+        </Nav>
+
+    </Navbar>
+        )
+
+      }
 }
 
 export default Navigation;
