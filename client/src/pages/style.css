@@ -40,6 +40,10 @@ img {
 	width: 100px;
 }
 
+.header {
+	z-index: 2;
+}
+
 .hidden {
 	display: none;
 }
@@ -164,7 +168,10 @@ img {
 	justify-content: center;
 	align-items: center;
 	padding: 16px;
+	position: absolute;
+	top: 0;
 	overflow: hidden;
+	z-index: 1;
 }
 
 .contact-container, .signup-container {
@@ -276,7 +283,7 @@ img {
 
 
 form {
-    width: 300px;
+    width: 400px;
     margin: 0 auto;
     text-align: center;
 }

@@ -41,12 +41,12 @@ function ProductForm(props) {
         await addProduct({
           variables: {
             userId: productUserId,
-            products: {
+            productData: {
                 name: formState.name,
                 description: formState.description,
                 image: formState.image,
-                quantity: formState.quantity,
-                price: formState.price,
+                quantity: parseInt(formState.quantity),
+                price: parseFloat(formState.price),
                 user: productUserId
             }
           },
