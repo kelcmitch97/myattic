@@ -250,22 +250,27 @@ img {
 .about-page-container {
 	width: 100%;
 	display: flex;
+	justify-content: center;
+	align-items: center;
 	flex-direction: column;
 	margin-top: 20px;
 }
 
-.about-title {
-	display: flex;
-	justify-content: center;
-}
-
 .about-content {
 	display: flex;
-	justify-content: center;
-	flex-direction: row;
+	justify-content: center; 
 	align-items: center;
-	padding: 30px;
-	width: 800px;
+	padding: 50px;
+}
+
+.about-left-side, .about-right-side {
+	padding: 20px;
+}
+
+@media screen and (max-width: 980px) {
+	.about-content {
+		flex-direction: column;
+	}
 }
 
 /* ----- Login Page ----- */

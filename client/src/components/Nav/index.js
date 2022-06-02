@@ -46,38 +46,6 @@ function Navigation() {
     });
   };
 
-    // <header className="flex-row px-1 header">
-    //   <h1 className="title">
-    //     <Link to="/">
-    //       <img alt="logo" src={logo} className='logo' />
-    //     </Link>
-    //   </h1>
-
-    //   <nav>
-
-    //     {showNavigation()}
-
-    //     {/* <li className="mx-1 menu">
-    //             <Link to="/">
-    //             Categories
-    //             </Link>
-    //             <ul>
-    //                 {categories.map((item) => (
-    //                     <li
-    //                     key={item._id}
-    //                     onClick={() => {
-    //                         handleClick(item._id);
-    //                     }}
-    //                     >
-    //                     {item.name}
-    //                     </li>
-    //                 ))}
-    //             </ul>
-    //         </li> */}
-
-    //   </nav>
-    // </header>
-
     if (Auth.loggedIn()) {
       return (
 
