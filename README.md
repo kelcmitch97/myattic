@@ -70,10 +70,13 @@ npm run develop
 
 ## Screenshots
 
+-Home Page
 ![home](/client/public/images/readme/home.jpg)
 
+-Products Page
 ![products](/client/public/images/readme/products.jpg)
 
+-Profile Page
 ![profile](/client/public/images/readme/profile.jpg)
 
 
