@@ -80,8 +80,6 @@ npm run develop
 ![profile](/client/public/images/readme/profile.jpg)
 
 
-
-
 ## Technologies Used
 - React
 - Node.js
